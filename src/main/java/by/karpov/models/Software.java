@@ -1,5 +1,7 @@
 package by.karpov.models;
 
+import com.sun.source.tree.ReturnTree;
+
 import java.math.BigDecimal;
 
 public class Software implements Comparable<Software>{
@@ -103,7 +105,5 @@ public class Software implements Comparable<Software>{
     @Override
     public int compareTo(Software software) {
         return Integer.compare(this.size,software.size);
-
     }
-
 }

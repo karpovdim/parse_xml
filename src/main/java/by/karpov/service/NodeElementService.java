@@ -35,9 +35,7 @@ public class NodeElementService {
                 if (childNodes.item(j).getNodeType() != ELEMENT_NODE) {
                     continue;
                 }
-                //  System.out.println(childNodes.item(j).getNodeName());
                 nodesResult.add(childNodes.item(j));
-                // if (nodesResult.get(i).hasChildNodes()) getListTegsByNodeList(nodesResult);
             }
         }
         return nodesResult;
