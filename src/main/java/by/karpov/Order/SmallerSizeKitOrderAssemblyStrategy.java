@@ -1,15 +1,14 @@
 package by.karpov.Order;
 
 import by.karpov.models.Software;
-import org.apache.commons.lang3.StringUtils;
 
 import java.util.*;
 
+import static by.karpov.service.SoftwareService.getSortedMap;
 
 public class SmallerSizeKitOrderAssemblyStrategy implements OrderAssemblyStrategy {
 
     final static Comparator<Software> comparator = Comparator.comparingInt(Software::getSize);
-
 
     @Override
     public List<Software> getOrder(List<Software> softwareList) {
@@ -21,20 +20,5 @@ public class SmallerSizeKitOrderAssemblyStrategy implements OrderAssemblyStrateg
             processingSoftwareList.add(softwareSet.iterator().next());
         }
         return processingSoftwareList;
-    }
-
-    private Map<String, TreeSet<Software>> getSortedMap(List<Software> softwareList) {
-        Map<String, TreeSet<Software>> processingSoftwareMap = new HashMap<>();
-        for (Software software : softwareList) {
-            String typeSoftware = software.getTypeSoftware();
-            if (StringUtils.isEmpty(software.getTypeSoftware())) {
-                continue;
-            }
-            if (!processingSoftwareMap.containsKey(typeSoftware)) {
-                processingSoftwareMap.put(typeSoftware, new TreeSet<>());
-            }
-            processingSoftwareMap.get(typeSoftware).add(software);
-        }
-        return processingSoftwareMap;
     }
 }

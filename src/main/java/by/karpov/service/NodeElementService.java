@@ -10,11 +10,12 @@ import java.util.List;
 public class NodeElementService {
     public static final short ELEMENT_NODE = Node.ELEMENT_NODE;
 
-    public static List<Node> getSoftwareElements(Document document){
+    public static List<Node> getSoftwareNodElements(Document document) {
         List<Node> nodeList = getListTegsByNode(document.getFirstChild());
-       return getListTegsByNodeList(nodeList);
+        return getListTegsByNodeList(nodeList);
     }
-   private static List<Node> getListTegsByNode(Node firstChild) {
+
+    private static List<Node> getListTegsByNode(Node firstChild) {
         NodeList childNodes = firstChild.getChildNodes();
         List<Node> nodeList = new ArrayList<>();
         for (int i = 0; i < childNodes.getLength(); i++) {
